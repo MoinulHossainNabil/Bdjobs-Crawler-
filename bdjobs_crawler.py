@@ -13,8 +13,8 @@ def get_jobs(url):
     job_root_link = 'https://jobs.bdjobs.com/jobdetails.asp?id='
     first_page_html = urlopen(url).read()
     first_page_content = bs(first_page_html, 'html.parser')
-    no_of_pages = len(first_page_content.find('div', class_='pagination').find_all('li')) - 1
-    for i in range(1, no_of_pages + 1):
+    no_of_pages = len(first_page_content.find('div', class_='pagination').find_all('li'))
+    for i in range(1, no_of_pages):
         browser = webdriver.Chrome(executable_path='chromedriver.exe')
         browser.get(url)
         if i == 1:
